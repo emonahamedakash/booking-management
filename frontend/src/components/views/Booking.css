@@ -1,0 +1,58 @@
+.booking_container .booking_list>h2{
+    text-align: center;
+    padding-bottom: 10px;
+}
+.booking_container .booking_list>table{
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 0 auto;
+}
+.booking_container .booking_list td,th{
+    border: 1px solid #b3b3b3;
+    text-align: left;
+    padding: 5px;
+}
+.booking_container .booking_list th{
+    background: #818CF8;
+    font-size: 14px;
+    text-align: center;
+}
+.booking_container .booking_list tbody tr:hover{
+    outline: 2px solid black;
+    /* color: red; */
+}
+
+.booking_container .booking_list tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  .booking_container .booking_list button{
+    outline: 0;
+    grid-gap: 8px;
+    align-items: center;
+    background: 0 0;
+    border: 1px solid #000;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    flex-shrink: 0;
+    font-size: 13px;
+    gap: 8px;
+    justify-content: center;
+    line-height: 1;
+    overflow: hidden;
+    padding: 5px 12px;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    transition: all .14s ease-out;
+    white-space: nowrap;
+  
+  }
+
+  .booking_container .booking_list button:hover {
+    box-shadow: 4px 4px 0 #000;
+    transform: translate(-4px,-4px);
+}
+.booking_container .booking_list button:focus-visible{
+    outline-offset: 1px;
+}

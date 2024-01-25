@@ -1,0 +1,31 @@
+.login_container{
+    background-color: #F3F3F0;
+    width: 800px;
+    height: 400px;
+    margin: 40px auto;
+    padding: 70px 55px;
+}
+.login_container>h3{
+    
+    color: #4D2F8F;
+    font-size: 30px;
+}
+.login_form>input{
+    width: 100%;
+    padding: 8px;
+    border: none;
+    font-size: 15px;
+}
+.login_form>button{
+    padding: 7px 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    background-color: #00008B;
+}
+
+.login_form>button:hover{
+    cursor: pointer;
+    color: #00FFF8;
+}
