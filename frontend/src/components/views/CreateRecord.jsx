@@ -1,21 +1,36 @@
 import React, {useState} from 'react'
 import "./CreateRecord.css"
+import axios from 'axios'
+import { baseUrl } from '../../baseUrl'
 
 const CreateRecord = () => {
-    const [reqBy,setReqBy] = useState("");
+    const [requestedBy,setReqBy] = useState("");
     const [handling,setHandling] = useState("");
     const [hotel,setHotel] = useState("");
-    const [cin,setCin] = useState("");
-    const [cout,setCout] = useState("");
-    const [leadpax, setLeadpax] = useState("");
+    const [checkIn,setCin] = useState("");
+    const [checkOut,setCout] = useState("");
+    const [leadPax, setLeadpax] = useState("");
     const [supplier, setSupplier] = useState("");
-    const [remarks, setRemarks] = useState("");
 
 
-    const handleCreate = (e) =>{
+    const handleCreate = async(e) =>{
         e.preventDefault();
-        const formData = {reqBy, handling, hotel, cin, cout, leadpax, supplier, remarks};
-        console.log(formData);
+        const today = new Date();
+        const month = today.getMonth()+1;
+        const year = today.getFullYear();
+        const day = today. getDate();
+        const date = day + "/" + month + "/" + year;
+        const formData = {date,requestedBy, handling, hotel, checkIn, checkOut, leadPax, supplier};
+        const response = await axios
+        .post(`${baseUrl}/booking/create`, formData, {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: false,
+        }).then((res)=>{
+          window.alert("Booking Created✔");
+          console.log(formData)
+        }).catch((err)=>{
+          console.log(err);
+        })
     }
   return (
     <div className='create_record_container'>
@@ -42,9 +57,7 @@ const CreateRecord = () => {
             Supplier<input type='text' name='supplier' placeholder='Supplier name'
             onChange={(e)=>setSupplier(e.target.value)}
             /><br />
-            Remarks<input type='text' name='remarks' placeholder='remarks'
-            onChange={(e)=>setRemarks(e.target.value)}
-            /><br /><br />
+             <br />
             <button onClick={(e)=>handleCreate(e)}>Create</button>
         </form>
     </div>
